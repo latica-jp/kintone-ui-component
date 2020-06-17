@@ -71,6 +71,7 @@ const TextArea = ({value, placeholder, isVisible, isDisabled, onChange, onClick,
         onChange={onChange}
         disabled={isDisabled}
         style={{width: sizeConfig.textAreaWidth + 'px', height: sizeConfig.textAreaHeight + 'px'}}
+        name={name}
         ref={ref}
       />
       <div
