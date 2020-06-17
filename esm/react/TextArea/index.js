@@ -43,7 +43,7 @@ var TextArea = function (_a, ref) {
         return null;
     }
     return (React.createElement("div", { className: "kuc-textarea-outer" },
-        React.createElement("textarea", { value: value, placeholder: placeholder, className: "kuc-textarea", onClick: onClick, onChange: onChange, disabled: isDisabled, style: { width: sizeConfig.textAreaWidth + 'px', height: sizeConfig.textAreaHeight + 'px' }, ref: ref }),
+        React.createElement("textarea", { value: value, placeholder: placeholder, className: "kuc-textarea", onClick: onClick, onChange: onChange, disabled: isDisabled, style: { width: sizeConfig.textAreaWidth + 'px', height: sizeConfig.textAreaHeight + 'px' }, name: name, ref: ref }),
         React.createElement("div", { className: "kuc-textarea-resize", style: { transform: "translate(" + sizeConfig.translateX + "px, " + sizeConfig.translateY + "px)" }, role: "button", tabIndex: 0, onMouseDown: function () {
                 setIsResizing(true);
             } })));
