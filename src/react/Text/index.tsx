@@ -7,15 +7,12 @@ type TextProps = {
   isDisabled?: boolean;
   isVisible?: boolean;
   placeholder?: string;
-  onChange?: (value: string | null) => void;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onClick?: (e: React.SyntheticEvent<EventTarget>) => void;
+  ref?: any;
 }
 
-const Text = ({value, isDisabled = false, isVisible = true, placeholder = '', onChange, onClick}: TextProps) => {
-  const _onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    onChange && onChange(event.target.value);
-  };
-
+const Text = ({value, isDisabled = false, isVisible = true, placeholder = '', onChange, onClick, ref}: TextProps) => {
   if (isVisible === false) {
     return null;
   }
@@ -27,8 +24,9 @@ const Text = ({value, isDisabled = false, isVisible = true, placeholder = '', on
       placeholder={placeholder}
       className="kuc-input-text"
       onClick={onClick}
-      onChange={_onChange}
+      onChange={onChange}
       disabled={isDisabled}
+      ref={ref}
     />
   );
 };

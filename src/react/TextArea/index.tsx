@@ -8,10 +8,11 @@ type TextAreaProps = {
   isVisible?: boolean;
   isDisabled?: boolean;
   onClick?: (e: React.SyntheticEvent<EventTarget>) => void;
-  onChange?: (value: string | null) => void;
+  onChange?: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
+  ref?: any;
 }
 
-const TextArea = ({value, placeholder, isVisible, isDisabled, onChange, onClick}: TextAreaProps) => {
+const TextArea = ({value, placeholder, isVisible, isDisabled, onChange, onClick, ref}: TextAreaProps) => {
   const mixTextAreaWidth = 297;
   const mixtTextAreaHeight = 123;
   const [sizeConfig, setSizeConfig] = useState({translateX: 0, translateY: 0, textAreaWidth: mixTextAreaWidth, textAreaHeight: mixtTextAreaHeight});
@@ -54,10 +55,6 @@ const TextArea = ({value, placeholder, isVisible, isDisabled, onChange, onClick}
     }
   );
 
-  const _onChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-    onChange && onChange(event.target.value);
-  };
-
   if (isVisible === false) {
     return null;
   }
@@ -71,9 +68,10 @@ const TextArea = ({value, placeholder, isVisible, isDisabled, onChange, onClick}
         placeholder={placeholder}
         className="kuc-textarea"
         onClick={onClick}
-        onChange={_onChange}
+        onChange={onChange}
         disabled={isDisabled}
         style={{width: sizeConfig.textAreaWidth + 'px', height: sizeConfig.textAreaHeight + 'px'}}
+        ref={ref}
       />
       <div
         className="kuc-textarea-resize"

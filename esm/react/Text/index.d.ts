@@ -6,8 +6,9 @@ declare type TextProps = {
     isDisabled?: boolean;
     isVisible?: boolean;
     placeholder?: string;
-    onChange?: (value: string | null) => void;
+    onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
     onClick?: (e: React.SyntheticEvent<EventTarget>) => void;
+    ref?: any;
 };
-declare const Text: ({ value, isDisabled, isVisible, placeholder, onChange, onClick }: TextProps) => JSX.Element | null;
+declare const Text: ({ value, isDisabled, isVisible, placeholder, onChange, onClick, ref }: TextProps) => JSX.Element | null;
 export default Text;

@@ -7,7 +7,8 @@ declare type TextAreaProps = {
     isVisible?: boolean;
     isDisabled?: boolean;
     onClick?: (e: React.SyntheticEvent<EventTarget>) => void;
-    onChange?: (value: string | null) => void;
+    onChange?: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
+    ref?: any;
 };
-declare const TextArea: ({ value, placeholder, isVisible, isDisabled, onChange, onClick }: TextAreaProps) => JSX.Element | null;
+declare const TextArea: ({ value, placeholder, isVisible, isDisabled, onChange, onClick, ref }: TextAreaProps) => JSX.Element | null;
 export default TextArea;
