@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, forwardRef } from 'react';
 import '../../css/font.css';
 import '../../css/TextArea.css';
-var TextArea = function (_a) {
-    var value = _a.value, placeholder = _a.placeholder, isVisible = _a.isVisible, isDisabled = _a.isDisabled, onChange = _a.onChange, onClick = _a.onClick, ref = _a.ref;
+var TextArea = function (_a, ref) {
+    var value = _a.value, placeholder = _a.placeholder, isVisible = _a.isVisible, isDisabled = _a.isDisabled, onChange = _a.onChange, onClick = _a.onClick, _b = _a.name, name = _b === void 0 ? '' : _b;
     var mixTextAreaWidth = 297;
     var mixtTextAreaHeight = 123;
-    var _b = useState({ translateX: 0, translateY: 0, textAreaWidth: mixTextAreaWidth, textAreaHeight: mixtTextAreaHeight }), sizeConfig = _b[0], setSizeConfig = _b[1];
-    var _c = useState(false), isResizing = _c[0], setIsResizing = _c[1];
+    var _c = useState({ translateX: 0, translateY: 0, textAreaWidth: mixTextAreaWidth, textAreaHeight: mixtTextAreaHeight }), sizeConfig = _c[0], setSizeConfig = _c[1];
+    var _d = useState(false), isResizing = _d[0], setIsResizing = _d[1];
     useEffect(function () {
         var currentX;
         var currentY;
@@ -48,4 +48,4 @@ var TextArea = function (_a) {
                 setIsResizing(true);
             } })));
 };
-export default TextArea;
+export default forwardRef(TextArea);

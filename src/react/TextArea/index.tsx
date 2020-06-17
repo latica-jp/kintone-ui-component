@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, forwardRef} from 'react';
 import '../../css/font.css';
 import '../../css/TextArea.css';
 
@@ -9,10 +9,10 @@ type TextAreaProps = {
   isDisabled?: boolean;
   onClick?: (e: React.SyntheticEvent<EventTarget>) => void;
   onChange?: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
-  ref?: any;
+  name?: string;
 }
 
-const TextArea = ({value, placeholder, isVisible, isDisabled, onChange, onClick, ref}: TextAreaProps) => {
+const TextArea = ({value, placeholder, isVisible, isDisabled, onChange, onClick, name = ''}: TextAreaProps, ref: any) => {
   const mixTextAreaWidth = 297;
   const mixtTextAreaHeight = 123;
   const [sizeConfig, setSizeConfig] = useState({translateX: 0, translateY: 0, textAreaWidth: mixTextAreaWidth, textAreaHeight: mixtTextAreaHeight});
@@ -86,4 +86,4 @@ const TextArea = ({value, placeholder, isVisible, isDisabled, onChange, onClick,
   );
 };
 
-export default TextArea;
+export default forwardRef<HTMLTextAreaElement, TextAreaProps>(TextArea);

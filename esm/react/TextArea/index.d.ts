@@ -8,7 +8,7 @@ declare type TextAreaProps = {
     isDisabled?: boolean;
     onClick?: (e: React.SyntheticEvent<EventTarget>) => void;
     onChange?: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
-    ref?: any;
+    name?: string;
 };
-declare const TextArea: ({ value, placeholder, isVisible, isDisabled, onChange, onClick, ref }: TextAreaProps) => JSX.Element | null;
-export default TextArea;
+declare const _default: React.ForwardRefExoticComponent<TextAreaProps & React.RefAttributes<HTMLTextAreaElement>>;
+export default _default;

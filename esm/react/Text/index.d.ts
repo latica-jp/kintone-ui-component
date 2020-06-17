@@ -8,7 +8,7 @@ declare type TextProps = {
     placeholder?: string;
     onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
     onClick?: (e: React.SyntheticEvent<EventTarget>) => void;
-    ref?: any;
+    name?: string;
 };
-declare const Text: ({ value, isDisabled, isVisible, placeholder, onChange, onClick, ref }: TextProps) => JSX.Element | null;
-export default Text;
+declare const _default: React.ForwardRefExoticComponent<TextProps & React.RefAttributes<HTMLInputElement>>;
+export default _default;

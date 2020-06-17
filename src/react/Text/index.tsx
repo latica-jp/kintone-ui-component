@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {forwardRef} from 'react';
 import '../../css/font.css';
 import '../../css/Text.css';
 
@@ -9,10 +9,10 @@ type TextProps = {
   placeholder?: string;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onClick?: (e: React.SyntheticEvent<EventTarget>) => void;
-  ref?: any;
+  name?: string;
 }
 
-const Text = ({value, isDisabled = false, isVisible = true, placeholder = '', onChange, onClick, ref}: TextProps) => {
+const Text = ({value, isDisabled = false, isVisible = true, placeholder = '', onChange, onClick, name = ''}: TextProps, ref: any) => {
   if (isVisible === false) {
     return null;
   }
@@ -26,9 +26,10 @@ const Text = ({value, isDisabled = false, isVisible = true, placeholder = '', on
       onClick={onClick}
       onChange={onChange}
       disabled={isDisabled}
+      name={name}
       ref={ref}
     />
   );
 };
 
-export default Text;
+export default forwardRef<HTMLInputElement, TextProps>(Text);
