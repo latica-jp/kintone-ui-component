@@ -4,6 +4,7 @@ import '../../css/IconButton.css';
 
 type IconButtonProps = {
   type?: 'insert' | 'remove' | 'close' | 'file' | 'right' | 'left';
+  htmlType?: 'submit' | 'reset' | 'button';
   size?: 'normal' | 'small';
   color?: 'gray' | 'blue' | 'red' | 'green' | 'transparent';
   isDisabled?: boolean;
@@ -12,7 +13,7 @@ type IconButtonProps = {
   onClick?: (e: React.SyntheticEvent<EventTarget>) => void;
 }
 
-const IconButton = ({type, size, color = 'gray', isDisabled, isVisible, shape, onClick}: IconButtonProps) => {
+const IconButton = ({type, htmlType = 'button', size, color = 'gray', isDisabled, isVisible, shape, onClick}: IconButtonProps) => {
   const _getClassName = () => {
     const colors = ['gray', 'blue', 'red', 'green', 'transparent'];
     const colorResult = colors.indexOf(color) === -1 ? 'gray' : color;
@@ -67,7 +68,7 @@ const IconButton = ({type, size, color = 'gray', isDisabled, isVisible, shape, o
     return null;
   }
   return (
-    <button className={_getClassName()} onClick={onClick} disabled={_checkIsDisabled()} >
+    <button className={_getClassName()} type={htmlType} onClick={onClick} disabled={_checkIsDisabled()} >
       <svg>
         <path d={_getIconData()} />
       </svg>
